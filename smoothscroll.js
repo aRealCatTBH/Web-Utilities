@@ -8,7 +8,9 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 
 function scroll(e) {
     if (typeof Element.prototype.scrollIntoView == "function") {
-        e.preventDefault();
+        if (typeof e !== "undefined") {
+            e.preventDefault();
+        }
         document.getElementById(location.hash.replace("#", "")).scrollIntoView({
             behavior: "smooth",
         });
